@@ -1,27 +1,14 @@
 import React from "react";
 
-// reactstrap components
-
-// core components
-
 function ProfilePageHeader() {
-  //   document.documentElement.classList.remove("nav-open");
-  //   React.useEffect(() => {
-  //     document.body.classList.add("profile-page");
-  //     return function cleanup() {
-  //       document.body.classList.remove("profile-page");
-  //     };
-  //   });
   return (
     <>
       <div
         className="page-header page-header-small"
         style={{
-          backgroundImage: `url(${"https://dl.airtable.com/.attachments/a6713ec0941889889ad726f0deb65b84/94d263d6/contact_page_image.jpg"})`,
+          backgroundImage: `url(${"https://dl.airtable.com/.attachments/df2ac6891edff3a8fe43b849f0a5e257/e9bdae79/main_image_slider.jpg"})`,
         }}
-      >
-        <div className="filter" />
-      </div>
+      ></div>
     </>
   );
 }

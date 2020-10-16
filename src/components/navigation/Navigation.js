@@ -73,7 +73,7 @@ function WhiteNavbar() {
               </NavItem>
               <NavItem className="active">
                 <NavLink tag={Link} to="/contact">
-                  Blog <span className="sr-only">(current)</span>
+                  Blawg <span className="sr-only">(current)</span>
                 </NavLink>
               </NavItem>
               <NavItem>
