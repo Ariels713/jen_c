@@ -1,5 +1,5 @@
 /*eslint-disable*/
-import React from "react";
+import React, { useState } from "react";
 
 // reactstrap components
 import {
@@ -20,6 +20,34 @@ import {
 // core components
 
 function FooterGray() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const resetForm = () => {
+    setName("");
+    setEmail("");
+  };
+
+  const submitHandler = async (event) => {
+    event.preventDefault();
+    try {
+      await fetch("/.netlify/functions/newsLetterTable", {
+        method: "POST",
+        body: JSON.stringify({
+          name,
+          email,
+        }),
+      });
+      resetForm();
+      setSubscribed(true);
+      set;
+    } catch (err) {
+      console.error(err);
+    }
+    // console.log(name, email);
+  };
+
   return (
     <>
       <footer
@@ -72,27 +100,64 @@ function FooterGray() {
                     <i className="fa fa-linkedin"></i>
                   </Button>
                 </li>
+                {subscribed ? (
+                  <div></div>
+                ) : (
+                  <li>
+                    <h3
+                      className="title"
+                      style={{ marginTop: "5px", marginLeft: "20px" }}
+                    >
+                      Sign up for my news letter!
+                    </h3>
+                  </li>
+                )}
               </ul>
             </nav>
             <div
               className="credits ml-auto footer-nav"
               style={{ display: "flex" }}
             >
-              <Form className="form-inline ml-auto">
-                <input
-                  placeholder="Newsletter!"
-                  type="text"
-                  class="mr-sm-3 no-border form-control"
-                ></input>
-                <Button
-                  className="btn-magnify btn-round"
-                  color="danger"
-                  type="button"
-                  onClick={() => setLoginModal(true)}
-                >
-                  Subscribe
-                </Button>
-              </Form>
+              {subscribed ? (
+                <div>
+                  <Container>
+                    <h3 className="title">Thanks For Subscribing!</h3>
+                  </Container>
+                </div>
+              ) : (
+                <Container>
+                  <Form className="contact-form" onSubmit={submitHandler}>
+                    <Row>
+                      <Col md="5">
+                        <Input
+                          placeholder="Name"
+                          name="name"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                        />
+                      </Col>
+                      <Col md="5">
+                        <Input
+                          placeholder="Email"
+                          name="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                        />
+                      </Col>
+                      <Col md="2">
+                        <Button
+                          className="btn-magnify btn-round"
+                          style={{ display: "flex", marginTop: "0" }}
+                          color="danger"
+                        >
+                          Subscribe
+                        </Button>
+                      </Col>
+                    </Row>
+                    <Row></Row>
+                  </Form>
+                </Container>
+              )}
             </div>
           </Row>
         </Container>
