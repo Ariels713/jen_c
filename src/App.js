@@ -1,12 +1,14 @@
 import React from "react";
-
-import "./App.css";
+import { Switch, Route } from "react-router-dom";
+import Navigation from "./components/navigation/Navigation";
+import MainHeader from "./components/header/MainHeader";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hola Mundo</h1>
-    </div>
+    <>
+      <Navigation />
+      <MainHeader />
+    </>
   );
 }
 
