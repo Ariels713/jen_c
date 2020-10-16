@@ -9,7 +9,7 @@ function SectionHeader() {
   return (
     <>
       {/* ********* FEATURES 4 ********* */}
-      <div className="features-4">
+      <div className="features-4" style={{ paddingBottom: "2%" }}>
         <Container md="12">
           <Row>
             <Col

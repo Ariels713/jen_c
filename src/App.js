@@ -5,14 +5,30 @@ import MainHeader from "./components/header/MainHeader";
 import RecentProject from "./components/recentProjects/RecentProjects";
 import AboutJenny from "./components/about/AboutJenny";
 import Footer from "./components/footer/Footer";
-
+import MainContent from "./components/content/MainContent";
+import Productions from "./components/productions/Productions";
+import FuzzyHead from "./components/productions/fuzzyHead/FuzzyHead";
 function App() {
   return (
     <>
       <Navigation />
-      <MainHeader />
-      <AboutJenny />
-      <RecentProject />
+      <Switch>
+        <Route exact path="/production">
+          <Productions />
+        </Route>
+
+        <Route exact path="/production/id">
+          <FuzzyHead />
+        </Route>
+
+        <Route exact path="/">
+          <MainHeader />
+          <MainContent />
+          <AboutJenny />
+          <RecentProject />
+        </Route>
+      </Switch>
+
       <Footer />
     </>
   );

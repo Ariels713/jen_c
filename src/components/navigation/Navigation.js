@@ -62,7 +62,7 @@ function WhiteNavbar() {
                 </NavLink>
               </NavItem>
               <NavItem className="active">
-                <NavLink tag={Link} to="/sell">
+                <NavLink tag={Link} to="/production">
                   Production <span className="sr-only">(current)</span>
                 </NavLink>
               </NavItem>
