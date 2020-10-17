@@ -10,7 +10,7 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 // core components
 import ProductionHeaders from "./ProductionsHeader";
 function Productions() {
@@ -53,7 +53,7 @@ function Productions() {
                     <img
                       alt="..."
                       className="img img-raised"
-                      src="https://dl.airtable.com/.attachments/29495f22b802fbbde74e0675c5f07485/25129aef/contact_us_page_image.jpg"
+                      src="https://dl.airtable.com/.attachments/1b60fac84a05423f0876efefb45039fa/6c7a2eca/IMG_70911.jpg"
                     />
                   </div>
                   <CardBody>
@@ -68,14 +68,11 @@ function Productions() {
                       production
                     </p>
                     <br />
-                    <Button
-                      className="btn-round"
-                      color="success"
-                      to="/fuzzyhead"
-                      tag={Link}
-                    >
-                      Read More
-                    </Button>
+                    <Link to={`/production/fuzzyhead`} exact>
+                      <Button className="btn-round" color="success">
+                        Read More
+                      </Button>
+                    </Link>
                   </CardBody>
                 </Card>
               </Col>
@@ -89,27 +86,21 @@ function Productions() {
                     />
                   </div>
                   <CardBody>
-                    <h6 className="card-category text-info">Travel</h6>
+                    <h6 className="card-category text-success">Production</h6>
                     <CardTitle tag="h3">
                       <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                        Kick-Ass ways to disappear like a Ninja!
+                        Postcards from the Orient
                       </a>
                     </CardTitle>
                     <p className="card-description">
-                      In the end, the judge ruled that Levandowski could be
-                      brought in and examined, but that each question asked to
-                      him would be vetted in advance and should have some basis
-                      in evidence.
+                      Production Designer for Postcards from the Orient
                     </p>
                     <br />
-                    <Button
-                      className="btn-round"
-                      color="primary"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      Read More
-                    </Button>
+                    <Link to="/production/orient">
+                      <Button className="btn-round" color="success">
+                        Read More
+                      </Button>
+                    </Link>
                   </CardBody>
                 </Card>
               </Col>

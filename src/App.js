@@ -8,18 +8,15 @@ import Footer from "./components/footer/Footer";
 import MainContent from "./components/content/MainContent";
 import Productions from "./components/productions/Productions";
 import FuzzyHead from "./components/productions/fuzzyHead/FuzzyHead";
+import Orient from "./components/productions/orient/Orient";
 function App() {
   return (
     <>
       <Navigation />
       <Switch>
-        <Route exact path="/production">
-          <Productions />
-        </Route>
-
-        <Route exact path="/production/id">
-          <FuzzyHead />
-        </Route>
+        <Route path="/production/fuzzyhead" component={FuzzyHead} />
+        <Route path="/production/orient" component={Orient} />
+        <Route path="/production" component={Productions} />
 
         <Route exact path="/">
           <MainHeader />

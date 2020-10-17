@@ -4,18 +4,19 @@ import React, { useState, useEffect } from "react";
 import { Card, Container, Row, Col } from "reactstrap";
 // core components
 
-function Productions() {
+function Orient() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const aboutMe = async (event) => {
       try {
-        const res = await fetch("/.netlify/functions/fuzzyTable");
+        const res = await fetch("/.netlify/functions/orientTable");
         const data = await res.json();
         setImages(data);
         setIsLoading(false);
       } catch (err) {}
     };
+    console.log(images);
     aboutMe();
   }, []);
 
@@ -28,17 +29,14 @@ function Productions() {
         <Container>
           <Row>
             <Col className="ml-auto mr-auto" md="8">
-              <h2 className="title">Fuzzy Head Film</h2>
-              <h5>
-                Production Designer for Fuzzy Head Film, an indie film
-                production
-              </h5>
+              <h2 className="title">Postcards from the Orient</h2>
+              <h5>Production Designer for Postcards from the Orient</h5>
               <h5>FINAL PRODUCTION DATE: COMING SOON!</h5>
               <h6 className="card-category text-success">
-                Director: Wendy McColm
+                Director: Brooke Sis Guttural
               </h6>
               <h6 className="card-category text-success">
-                Director of Photography: Sonja Tsypin
+                Co-Production Designer: Celina Arslanian
               </h6>
             </Col>
           </Row>
@@ -79,4 +77,4 @@ function Productions() {
   );
 }
 
-export default Productions;
+export default Orient;
