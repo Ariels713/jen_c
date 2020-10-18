@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Headroom from "headroom.js";
 // reactstrap components
 import {
-  Button,
   Collapse,
   NavbarBrand,
   Navbar,
@@ -72,7 +71,7 @@ function WhiteNavbar() {
                 </NavLink>
               </NavItem>
               <NavItem className="active">
-                <NavLink tag={Link} to="/contact">
+                <NavLink tag={Link} to="/blawg">
                   Blawg <span className="sr-only">(current)</span>
                 </NavLink>
               </NavItem>

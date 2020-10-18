@@ -24,6 +24,7 @@ import Doji from "./components/styling/dojo/Doji";
 import Fitzpartrick from "./components/styling/fitzpatrick/Fitpatrick";
 import Ldsass from "./components/styling/ldsass/Ldsass";
 import Mazza from "./components/styling/mazzaNYC/Mazza";
+import Blawg from "./components/blawg/BlogPosts";
 function App() {
   return (
     <>
@@ -57,6 +58,11 @@ function App() {
 
         <Route path="/styling" component={Styling} />
         {/* Styling Links */}
+
+        {/* Blawg Links */}
+        <Route path="/blawg" component={Mazza} />
+        {/* Blawg Links */}
+
         <Route exact path="/">
           <MainHeader />
           <MainContent />

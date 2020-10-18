@@ -47,7 +47,7 @@ function Example() {
             </Button>
           </Form>
         </div>
-        <div className="modal-footer no-border-footer">
+        {/* <div className="modal-footer no-border-footer">
           <span className="text-muted text-center">
             Looking{" "}
             <a href="#pablo" onClick={(e) => e.preventDefault()}>
@@ -55,7 +55,7 @@ function Example() {
             </a>
             ?
           </span>
-        </div>
+        </div> */}
       </Modal>
     </>
   );
