@@ -12,11 +12,11 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 // core components
-import InteriorsHeader from "./InteriorsHeader";
-function Interiors() {
+import StylingHeader from "./StylingHeader";
+function Styling() {
   return (
     <>
-      <InteriorsHeader />
+      <StylingHeader />
       <div
         className="section text-center landing-section"
         style={{ paddingBottom: 0 }}
@@ -25,13 +25,12 @@ function Interiors() {
           <Row>
             <Col className="ml-auto mr-auto" md="8">
               <h2 className="title">
-                Residential, Retail & Hospitality Interior Designer{" "}
+                Film & Photography Interiors and Prop Stylist{" "}
               </h2>
               <h5>
-                As a trained interior designer with a BFA from SCAD I believe
-                well thought out interior spaces that represent: the owner,
-                users purpose, organization, and style, is essential to the
-                human psyche. I am a transformer of designated space and area.
+                Working with brands, photographers, real estate agents, and
+                other creatives to stage interior spaces to be photographed,
+                showed or sold.
               </h5>
             </Col>
           </Row>
@@ -43,7 +42,7 @@ function Interiors() {
           <Container>
             <Row>
               <Col className="ml-auto mr-auto" md="8">
-                <h2 className="title text-center">Interiors</h2>
+                <h2 className="title text-center">Styling</h2>
                 <br />
               </Col>
             </Row>
@@ -54,20 +53,18 @@ function Interiors() {
                     <img
                       alt="..."
                       className="img img-raised"
-                      src="https://dl.airtable.com/.attachments/9580b91941ee28c912acab061323e657/3eba41f1/ScreenShot2020-02-26at9_20_00AM.png"
+                      src="https://dl.airtable.com/.attachments/51908a946cc3ce047291f6740b152398/42acce0d/Mazza_LS_patekmoneyshot_064_1-Retouched.jpg"
                     />
                   </div>
                   <CardBody>
-                    <h6 className="card-category text-success">Interiors</h6>
-                    <CardTitle tag="h3">
-                      Forest Hills Residential Project
-                    </CardTitle>
+                    <h6 className="card-category text-success">Styling</h6>
+                    <CardTitle tag="h3">Mazza NYC</CardTitle>
                     <p className="card-description">
-                      The following is a private client residential design.
-                      Images Pending
+                      The following is a styling photoshoot to develop marketing
+                      content for Mazza NYC
                     </p>
                     <br />
-                    <Link to={`/interiors/forest`} exact>
+                    <Link to={`/styling/mazza`} exact>
                       <Button className="btn-round" color="success">
                         Read More
                       </Button>
@@ -81,19 +78,16 @@ function Interiors() {
                     <img
                       alt="..."
                       className="img img-raised"
-                      src="https://dl.airtable.com/.attachments/8d0b2841de77d2cd7228797141490ca4/32406758/IMG_8207.jpg"
+                      src="https://dl.airtable.com/.attachments/3f3a1c5e93fbeb90a61dc78f3df1cc2e/2a9a18fc/IMG_2156.jpg"
                     />
                   </div>
                   <CardBody>
-                    <h6 className="card-category text-success">Interiors</h6>
-                    <CardTitle tag="h3">Upper West Side Rooftop</CardTitle>
-                    <p className="card-description">
-                      The following is a private client residential design.
-                      Images Pending
-                    </p>
+                    <h6 className="card-category text-success">Styling</h6>
+                    <CardTitle tag="h3">LDSass Jewlery</CardTitle>
+
                     <br />
-                    <Link to="/interiors/uws">
-                      <Button className="btn-round" color="success">
+                    <Link to="/syling/ldsass">
+                      <Button className="btn-round" color="success" disabled>
                         Read More
                       </Button>
                     </Link>
@@ -106,18 +100,44 @@ function Interiors() {
                     <img
                       alt="..."
                       className="img img-raised"
-                      src="https://dl.airtable.com/.attachments/53c5ee40de3b29e87d2ca1ee14cf0a85/7a07033c/img001.jpg"
+                      src="https://dl.airtable.com/.attachments/c00823dd3570d6e3d08e34ae83446cae/fe46745d/20191202_DOJI_Shot2_FreshCitrus_029_MAIN.jpg"
                     />
                   </div>
                   <CardBody>
-                    <h6 className="card-category text-success">Interiors</h6>
-                    <CardTitle tag="h3">Residential Marker Rendering</CardTitle>
+                    <h6 className="card-category text-success">Styling</h6>
+                    <CardTitle tag="h3">Doji Natural Deodorant</CardTitle>
                     <p className="card-description">
-                      The is a freelance project worked with{" "}
+                      The following is a styling photoshoot to develop social
+                      media & marketing content{" "}
                     </p>
 
                     <br />
-                    <Link to="/interiors/rendering">
+                    <Link to="/styling/doji">
+                      <Button className="btn-round" color="success">
+                        Read More
+                      </Button>
+                    </Link>
+                  </CardBody>
+                </Card>
+              </Col>
+              <Col md="6">
+                <Card className="card-plain card-blog text-center">
+                  <div className="card-image">
+                    <img
+                      alt="..."
+                      className="img img-raised"
+                      src="https://dl.airtable.com/.attachmentThumbnails/6a40f25a892f337f9766cfb425c127aa/dd1271e2"
+                    />
+                  </div>
+                  <CardBody>
+                    <h6 className="card-category text-success">Styling</h6>
+                    <CardTitle tag="h3">Emily Fitzpatrick Ceramics</CardTitle>
+                    <p className="card-description">
+                      Product & Photography Stylist{" "}
+                    </p>
+
+                    <br />
+                    <Link to="/styling/fitzpatrick">
                       <Button className="btn-round" color="success">
                         Read More
                       </Button>
@@ -133,4 +153,4 @@ function Interiors() {
   );
 }
 
-export default Interiors;
+export default Styling;

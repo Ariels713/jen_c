@@ -19,6 +19,11 @@ import Interiors from "./components/interiors/Interiors";
 import Forest from "./components/interiors/forrest/Forrest";
 import Rendering from "./components/interiors/rendering/Rendering";
 import UWS from "./components/interiors/uws/UWS";
+import Styling from "./components/styling/Styling";
+import Doji from "./components/styling/dojo/Doji";
+import Fitzpartrick from "./components/styling/fitzpatrick/Fitpatrick";
+import Ldsass from "./components/styling/ldsass/Ldsass";
+import Mazza from "./components/styling/mazzaNYC/Mazza";
 function App() {
   return (
     <>
@@ -41,7 +46,17 @@ function App() {
         <Route path="/interiors/uws" component={UWS} />
 
         <Route path="/interiors" component={Interiors} />
+
         {/* Interior Links */}
+
+        {/* Styling Links */}
+        <Route path="/styling/doji" component={Doji} />
+        <Route path="/styling/fitzpatrick" component={Fitzpartrick} />
+        <Route path="/styling/ldsass" component={Ldsass} />
+        <Route path="/styling/mazza" component={Mazza} />
+
+        <Route path="/styling" component={Styling} />
+        {/* Styling Links */}
         <Route exact path="/">
           <MainHeader />
           <MainContent />
