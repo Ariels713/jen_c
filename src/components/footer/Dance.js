@@ -1,10 +1,10 @@
 import React from "react";
 // reactstrap components
-import { Button, FormGroup, Input, Modal } from "reactstrap";
+import { Button, Modal } from "reactstrap";
 
 function Dance() {
   const [largeModal, setLargeModal] = React.useState(false);
-  const [smallModal, setSmallModal] = React.useState(false);
+
   return (
     <>
       <Button

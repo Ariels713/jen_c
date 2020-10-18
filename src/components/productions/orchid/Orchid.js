@@ -10,7 +10,7 @@ function Productions() {
   useEffect(() => {
     const aboutMe = async (event) => {
       try {
-        const res = await fetch("/.netlify/functions/fuzzyTable");
+        const res = await fetch("/.netlify/functions/orchidTable");
         const data = await res.json();
         setImages(data);
         setIsLoading(false);
@@ -28,32 +28,47 @@ function Productions() {
         <Container>
           <Row>
             <Col className="ml-auto mr-auto" md="8">
-              <h2 className="title">Fuzzy Head Film</h2>
+              <h2 className="title">Aux Abris - NYBG Orchid Dinner</h2>
               <h5>
-                Production Designer for Fuzzy Head Film, an indie film
-                production
+                The following is table design that I helped construct with Aux
+                Abris for the annual NY Botanical Garden Fundraising Gala. The
+                Design look and concept was done by Karen Roberts founder & CEO
+                of Aux Abris
               </h5>
-              <h5>FINAL PRODUCTION DATE: COMING SOON!</h5>
-              <h6 className="card-category text-success">
+              <h6 className="card-category">
                 <Button
                   className="btn-link"
                   color="success"
                   onClick={() =>
-                    window.open("https://www.wendyfilms.com/", "_blank")
+                    window.open(
+                      "https://www.imdb.com/title/tt11638942/?ref_=nm_flmg_art_1",
+                      "_blank"
+                    )
                   }
                 >
-                  Director: Wendy McColm
+                  Aux Abris
+                </Button>
+                {`&`}
+                <Button
+                  className="btn-link"
+                  color="success"
+                  onClick={() =>
+                    window.open("https://enlightenedcollector.com/", "_blank")
+                  }
+                >
+                  Collaboration with Susan Miller Mccormick
                 </Button>
               </h6>
+
               <h6 className="card-category text-success">
                 <Button
                   className="btn-link"
                   color="success"
                   onClick={() =>
-                    window.open("https://www.sonjatsypin.com/", "_blank")
+                    window.open("https://www.peterdressel.com/", "_blank")
                   }
                 >
-                  Director of Photography: Sonja Tyspin
+                  Phtographer Peter Dressel
                 </Button>
               </h6>
             </Col>

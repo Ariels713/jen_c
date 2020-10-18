@@ -4,18 +4,19 @@ import React, { useState, useEffect } from "react";
 import { Card, Container, Row, Col, Button } from "reactstrap";
 // core components
 
-function Productions() {
+function Orient() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const aboutMe = async (event) => {
       try {
-        const res = await fetch("/.netlify/functions/fuzzyTable");
+        const res = await fetch("/.netlify/functions/funnyFaceTable");
         const data = await res.json();
         setImages(data);
         setIsLoading(false);
       } catch (err) {}
     };
+    console.log(images);
     aboutMe();
   }, []);
 
@@ -28,21 +29,33 @@ function Productions() {
         <Container>
           <Row>
             <Col className="ml-auto mr-auto" md="8">
-              <h2 className="title">Fuzzy Head Film</h2>
-              <h5>
-                Production Designer for Fuzzy Head Film, an indie film
-                production
-              </h5>
-              <h5>FINAL PRODUCTION DATE: COMING SOON!</h5>
+              <h2 className="title">Funny Face Film</h2>
+              <h5>Scenic Prop Artist | Car Destruction & Mask Art Details</h5>
+              <Button
+                className="btn-link"
+                color="success"
+                onClick={() =>
+                  window.open(
+                    "https://www.imdb.com/title/tt11638942/?ref_=nm_flmg_art_1",
+                    "_blank"
+                  )
+                }
+              >
+                Funny Face Film 2020
+              </Button>
+
               <h6 className="card-category text-success">
                 <Button
                   className="btn-link"
                   color="success"
                   onClick={() =>
-                    window.open("https://www.wendyfilms.com/", "_blank")
+                    window.open(
+                      "https://www.imdb.com/name/nm3048822/",
+                      "_blank"
+                    )
                   }
                 >
-                  Director: Wendy McColm
+                  Production Designer: Alan Iampert
                 </Button>
               </h6>
               <h6 className="card-category text-success">
@@ -50,10 +63,13 @@ function Productions() {
                   className="btn-link"
                   color="success"
                   onClick={() =>
-                    window.open("https://www.sonjatsypin.com/", "_blank")
+                    window.open(
+                      "https://www.imdb.com/name/nm8369474/",
+                      "_blank"
+                    )
                   }
                 >
-                  Director of Photography: Sonja Tyspin
+                  Art Director: Clarence McLay
                 </Button>
               </h6>
             </Col>
@@ -95,4 +111,4 @@ function Productions() {
   );
 }
 
-export default Productions;
+export default Orient;

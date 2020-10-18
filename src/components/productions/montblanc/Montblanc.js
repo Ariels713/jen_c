@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
 
 // reactstrap components
-import { Card, Container, Row, Col, Button } from "reactstrap";
+import { Card, Container, Row, Col } from "reactstrap";
 // core components
 
-function Productions() {
+function Orient() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const aboutMe = async (event) => {
       try {
-        const res = await fetch("/.netlify/functions/fuzzyTable");
+        const res = await fetch("/.netlify/functions/montBlancTable");
         const data = await res.json();
         setImages(data);
         setIsLoading(false);
       } catch (err) {}
     };
+    console.log(images);
     aboutMe();
   }, []);
 
@@ -28,34 +29,11 @@ function Productions() {
         <Container>
           <Row>
             <Col className="ml-auto mr-auto" md="8">
-              <h2 className="title">Fuzzy Head Film</h2>
+              <h2 className="title">Mont Blanc X Webster</h2>
               <h5>
-                Production Designer for Fuzzy Head Film, an indie film
-                production
+                The is a freelance project worked with Rise & Set Agency worked
+                on design, design concept and RFP
               </h5>
-              <h5>FINAL PRODUCTION DATE: COMING SOON!</h5>
-              <h6 className="card-category text-success">
-                <Button
-                  className="btn-link"
-                  color="success"
-                  onClick={() =>
-                    window.open("https://www.wendyfilms.com/", "_blank")
-                  }
-                >
-                  Director: Wendy McColm
-                </Button>
-              </h6>
-              <h6 className="card-category text-success">
-                <Button
-                  className="btn-link"
-                  color="success"
-                  onClick={() =>
-                    window.open("https://www.sonjatsypin.com/", "_blank")
-                  }
-                >
-                  Director of Photography: Sonja Tyspin
-                </Button>
-              </h6>
             </Col>
           </Row>
         </Container>
@@ -95,4 +73,4 @@ function Productions() {
   );
 }
 
-export default Productions;
+export default Orient;

@@ -57,7 +57,7 @@ function WhiteNavbar() {
           <Collapse navbar isOpen={collapseOpen}>
             <Nav className="ml-auto" navbar>
               <NavItem className="active">
-                <NavLink tag={Link} to="/properties">
+                <NavLink tag={Link} to="/interiors">
                   Interiors <span className="sr-only">(current)</span>
                 </NavLink>
               </NavItem>
