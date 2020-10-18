@@ -1,6 +1,6 @@
 /*eslint-disable*/
 import React from "react";
-
+import { Link } from "react-router-dom";
 // reactstrap components
 import {
   Button,
@@ -17,6 +17,7 @@ import {
   Container,
   Row,
   Col,
+  Badge,
 } from "reactstrap";
 
 // core components
@@ -37,25 +38,22 @@ function RecentProjects() {
             <Col md="4">
               <Card className="card-profile card-plain">
                 <CardImg top tag="div">
-                  <a
-                    href="http://www.creative-tim.com/product/paper-kit-react?ref=pkpr-sections-page"
-                    target="_blank"
-                  >
+                  <Link to="/interiors/uws">
                     <img
                       alt="..."
                       className="img"
-                      src="https://dl.airtable.com/.attachments/df2ac6891edff3a8fe43b849f0a5e257/e9bdae79/main_image_slider.jpg"
+                      src="https://dl.airtable.com/.attachments/65f9f121f27a186b3ac8e6d50ddc968c/07f65c40/image-asset.jpeg"
                     />
-                  </a>
+                  </Link>
                 </CardImg>
                 <CardBody>
-                  <h6 className="card-category">Interiors</h6>
-                  <CardTitle tag="h4">
-                    Beautiful Desktop for Designers
-                  </CardTitle>
+                  <Badge className="main-tag" color="primary">
+                    Interiors
+                  </Badge>
+                  <CardTitle tag="h4">Upper West Side Roof Top</CardTitle>
                   <p className="card-description">
-                    As this technology matures it will be cool to see what
-                    hackers are able to do with it.
+                    The following is a private client residential design. Images
+                    Pending
                   </p>
                 </CardBody>
               </Card>
@@ -63,25 +61,21 @@ function RecentProjects() {
             <Col md="4">
               <Card className="card-profile card-plain">
                 <CardImg top tag="div">
-                  <a
-                    href="http://www.creative-tim.com/product/paper-kit-react?ref=pkpr-sections-page"
-                    target="_blank"
-                  >
+                  <Link to="/production/orient">
                     <img
                       alt="..."
                       className="img"
                       src="https://dl.airtable.com/.attachments/df2ac6891edff3a8fe43b849f0a5e257/e9bdae79/main_image_slider.jpg"
                     />
-                  </a>
+                  </Link>
                 </CardImg>
                 <CardBody>
-                  <h6 className="card-category">Production</h6>
-                  <CardTitle tag="h4">
-                    Famous Website Redesign Implementation
-                  </CardTitle>
+                  <Badge className="main-tag" color="danger">
+                    production
+                  </Badge>
+                  <CardTitle tag="h4">Postcards from the Orient</CardTitle>
                   <p className="card-description">
-                    Streaming services once again top the list of this year’s
-                    Emmy nominations
+                    Production Designer for Postcards from the Orient
                   </p>
                 </CardBody>
               </Card>
@@ -89,25 +83,22 @@ function RecentProjects() {
             <Col md="4">
               <Card className="card-profile card-plain">
                 <CardImg top tag="div">
-                  <a
-                    href="https://dl.airtable.com/.attachments/df2ac6891edff3a8fe43b849f0a5e257/e9bdae79/main_image_slider.jpg"
-                    target="_blank"
-                  >
+                  <Link to="/styling/mazza">
                     <img
                       alt="..."
                       className="img"
-                      src="https://dl.airtable.com/.attachments/df2ac6891edff3a8fe43b849f0a5e257/e9bdae79/main_image_slider.jpg"
+                      src="https://dl.airtable.com/.attachments/ef3d15880cd10c153731427b7c1d84ac/259ded92/Mazza_Mixed_W_M_pieces_038_1-Retouched.jpg"
                     />
-                  </a>
+                  </Link>
                 </CardImg>
                 <CardBody>
-                  <h6 className="card-category">Styling</h6>
-                  <CardTitle tag="h4">
-                    The Best Productivity Applications
-                  </CardTitle>
+                  <Badge className="main-tag" color="warning">
+                    Styling
+                  </Badge>
+                  <CardTitle tag="h4">Mazza New York</CardTitle>
                   <p className="card-description">
-                    Dietary supplements don’t need approval from the Food and
-                    Drug Administration.
+                    The following is a styling photoshoot to develop marketing
+                    content for Mazza NYC
                   </p>
                 </CardBody>
               </Card>
