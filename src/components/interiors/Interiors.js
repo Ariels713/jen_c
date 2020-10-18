@@ -25,12 +25,13 @@ function Interiors() {
           <Row>
             <Col className="ml-auto mr-auto" md="8">
               <h2 className="title">
-                Events, Film & Cinematography Production Designer{" "}
+                Residential, Retail & Hospitality Interior Designer{" "}
               </h2>
               <h5>
-                As a production designer I design, lead, produce, and transform
-                space. Whether it’s behind a lens or a tangible area I fuse art
-                and design to produce experience
+                As a trained interior designer with a BFA from SCAD I believe
+                well thought out interior spaces that represent: the owner,
+                users purpose, organization, and style, is essential to the
+                human psyche. I am a transformer of designated space and area.
               </h5>
             </Col>
           </Row>
@@ -42,7 +43,7 @@ function Interiors() {
           <Container>
             <Row>
               <Col className="ml-auto mr-auto" md="8">
-                <h2 className="title text-center">Production</h2>
+                <h2 className="title text-center">Interiors</h2>
                 <br />
               </Col>
             </Row>
@@ -53,18 +54,20 @@ function Interiors() {
                     <img
                       alt="..."
                       className="img img-raised"
-                      src="https://dl.airtable.com/.attachments/1b60fac84a05423f0876efefb45039fa/6c7a2eca/IMG_70911.jpg"
+                      src="https://dl.airtable.com/.attachments/9580b91941ee28c912acab061323e657/3eba41f1/ScreenShot2020-02-26at9_20_00AM.png"
                     />
                   </div>
                   <CardBody>
-                    <h6 className="card-category text-success">Production</h6>
-                    <CardTitle tag="h3">Fuzzy Head Film</CardTitle>
+                    <h6 className="card-category text-success">Interiors</h6>
+                    <CardTitle tag="h3">
+                      Forest Hills Residential Project
+                    </CardTitle>
                     <p className="card-description">
-                      Production Designer for Fuzzy Head Film, an indie film
-                      production
+                      The following is a private client residential design.
+                      Images Pending
                     </p>
                     <br />
-                    <Link to={`/production/fuzzyhead`} exact>
+                    <Link to={`/interiors/forest`} exact>
                       <Button className="btn-round" color="success">
                         Read More
                       </Button>
@@ -78,17 +81,18 @@ function Interiors() {
                     <img
                       alt="..."
                       className="img img-raised"
-                      src="https://dl.airtable.com/.attachments/a4c67d0253964971ebdf9d348aa6e525/4af9b59f/123.jpg"
+                      src="https://dl.airtable.com/.attachments/8d0b2841de77d2cd7228797141490ca4/32406758/IMG_8207.jpg"
                     />
                   </div>
                   <CardBody>
                     <h6 className="card-category text-success">Production</h6>
-                    <CardTitle tag="h3">Postcards from the Orient</CardTitle>
+                    <CardTitle tag="h3">Upper West Side Rooftop</CardTitle>
                     <p className="card-description">
-                      Production Designer for Postcards from the Orient
+                      The following is a private client residential design.
+                      Images Pending
                     </p>
                     <br />
-                    <Link to="/production/orient">
+                    <Link to="/interiors/uws">
                       <Button className="btn-round" color="success">
                         Read More
                       </Button>
@@ -102,122 +106,18 @@ function Interiors() {
                     <img
                       alt="..."
                       className="img img-raised"
-                      src="https://dl.airtable.com/.attachments/a217aadfd381287808c01bfaad7b41c3/45b3b5e4/montblanc_Option1.jpg"
+                      src="https://dl.airtable.com/.attachments/53c5ee40de3b29e87d2ca1ee14cf0a85/7a07033c/img001.jpg"
                     />
                   </div>
                   <CardBody>
                     <h6 className="card-category text-success">Production</h6>
-                    <CardTitle tag="h3">Montblanc x The Webster</CardTitle>
+                    <CardTitle tag="h3">Residential Marker Rendering</CardTitle>
                     <p className="card-description">
                       The is a freelance project worked with{" "}
                     </p>
 
                     <br />
-                    <Link to="/production/montblanc">
-                      <Button className="btn-round" color="success">
-                        Read More
-                      </Button>
-                    </Link>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col md="6">
-                <Card className="card-plain card-blog text-center">
-                  <div className="card-image">
-                    <img
-                      alt="..."
-                      className="img img-raised"
-                      src="https://dl.airtable.com/.attachments/c1e82ce3a5c09bad802d45ec60013c25/5fdd2f15/MV5BMDE4NDNmNDItMzA4ZC00MmE0LTg4ZTctYmNkYjE0ODRlNjViXkEyXkFqcGdeQXVyMTQ4NDY5OTc__V1_.jpg"
-                    />
-                  </div>
-                  <CardBody>
-                    <h6 className="card-category text-success">Production</h6>
-                    <CardTitle tag="h3">Funny Face Film</CardTitle>
-                    <p className="card-description">
-                      Scenic Prop Artist | Car Destruction & Mask Art Details{" "}
-                    </p>
-                    <br />
-                    <Link to="/production/funnyface">
-                      <Button className="btn-round" color="success">
-                        Read More
-                      </Button>
-                    </Link>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col md="6">
-                <Card className="card-plain card-blog text-center">
-                  <div className="card-image">
-                    <img
-                      alt="..."
-                      className="img img-raised"
-                      src="https://dl.airtable.com/.attachments/4df001a436e133bd5525d62994f63680/a128f4cb/IMG_4603.png"
-                    />
-                  </div>
-                  <CardBody>
-                    <h6 className="card-category text-success">Production</h6>
-                    <CardTitle tag="h3">Biology + Fossils</CardTitle>
-                    <p className="card-description">
-                      Production Design for Museum of Natural History NYC
-                      holiday event
-                    </p>
-                    <br />
-                    <Link to="/production/museum">
-                      <Button className="btn-round" color="success">
-                        Read More
-                      </Button>
-                    </Link>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col md="6">
-                <Card className="card-plain card-blog text-center">
-                  <div className="card-image">
-                    <img
-                      alt="..."
-                      className="img img-raised"
-                      src="https://dl.airtable.com/.attachments/f67ec7b1eec383b977481cae9a331f1a/3459bc2f/NYBGOrchidDinner-Karen-2-LowRes.jpg"
-                    />
-                  </div>
-                  <CardBody>
-                    <h6 className="card-category text-success">Production</h6>
-                    <CardTitle tag="h3">
-                      Aux Abris - NYBG Orchid Dinner
-                    </CardTitle>
-                    <p className="card-description">
-                      The following is table design that I helped construct with
-                      Aux Abris for the annual NY Botanical Garden Fundraising
-                      Gala. The Design look and concept was done by Karen
-                      Roberts founder & CEO of Aux Abris
-                    </p>
-                    <div className="separator" style={{ padding: 0 }} />
-                    <br />
-                    <Link to="/production/orchid">
-                      <Button className="btn-round" color="success">
-                        Read More
-                      </Button>
-                    </Link>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col md="6">
-                <Card className="card-plain card-blog text-center">
-                  <div className="card-image">
-                    <img
-                      alt="..."
-                      className="img img-raised"
-                      src="https://dl.airtable.com/.attachments/d404a23f90180aa59a7a66b9da46a3cf/22c511d7/IMG_2904.jpg"
-                    />
-                  </div>
-                  <CardBody>
-                    <h6 className="card-category text-success">Production</h6>
-                    <CardTitle tag="h3">Tribecca Wedding</CardTitle>
-                    <p className="card-description">
-                      Production Design for Beautiful Wedding in Tribecca NYC.
-                    </p>
-                    <div className="separator" style={{ padding: 0 }} />
-                    <br />
-                    <Link to="/production/tribecca">
+                    <Link to="/interiors/rendering">
                       <Button className="btn-round" color="success">
                         Read More
                       </Button>

@@ -4,6 +4,7 @@ import Navigation from "./components/navigation/Navigation";
 import MainHeader from "./components/header/MainHeader";
 import RecentProject from "./components/recentProjects/RecentProjects";
 import AboutJenny from "./components/about/AboutJenny";
+import NewsLetter from "./components/newsletter/NewsLetter";
 import Footer from "./components/footer/Footer";
 import MainContent from "./components/content/MainContent";
 import Productions from "./components/productions/Productions";
@@ -15,6 +16,9 @@ import Museum from "./components/productions/museum/Museum";
 import Orchid from "./components/productions/orchid/Orchid";
 import Tribecca from "./components/productions/tribecca/Tribecca";
 import Interiors from "./components/interiors/Interiors";
+import Forest from "./components/interiors/forrest/Forrest";
+import Rendering from "./components/interiors/rendering/Rendering";
+import UWS from "./components/interiors/uws/UWS";
 function App() {
   return (
     <>
@@ -32,6 +36,9 @@ function App() {
         <Route path="/production" component={Productions} />
         {/* Production Links */}
         {/* Interior Links */}
+        <Route path="/interiors/forest" component={Forest} />
+        <Route path="/interiors/rendering" component={Rendering} />
+        <Route path="/interiors/uws" component={UWS} />
 
         <Route path="/interiors" component={Interiors} />
         {/* Interior Links */}
@@ -42,7 +49,7 @@ function App() {
           <RecentProject />
         </Route>
       </Switch>
-
+      <NewsLetter />
       <Footer />
     </>
   );

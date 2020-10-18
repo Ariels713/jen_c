@@ -31,15 +31,6 @@ function LandingPage() {
                 for my portfolio password. SHHH! it has more private projects to
                 share.
               </h5>
-              <br />
-              <Button
-                className="btn-fill btn-round"
-                color="danger"
-                href="#pablo"
-                onClick={(e) => e.preventDefault()}
-              >
-                See Details
-              </Button>
             </Col>
           </Row>
         </Container>

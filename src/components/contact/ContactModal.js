@@ -51,7 +51,7 @@ function ContactModal() {
               />
             </FormGroup>
             <Button block className="btn-round" color="success">
-              Log in
+              Submit
             </Button>
           </Form>
         </div>

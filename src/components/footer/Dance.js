@@ -23,7 +23,7 @@ function Dance() {
       >
         <div className="modal-header">
           <h4 className="modal-title" id="myLargeModalLabel">
-            Large modal
+            💃🏽🕺🏼
           </h4>
           <button
             aria-label="Close"

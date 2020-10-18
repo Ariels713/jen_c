@@ -6,7 +6,7 @@ function ProductionHeader() {
       <div
         className="page-header page-header-small"
         style={{
-          backgroundImage: `url(${"https://dl.airtable.com/.attachments/29495f22b802fbbde74e0675c5f07485/25129aef/contact_us_page_image.jpg"})`,
+          backgroundImage: `url(${"https://dl.airtable.com/.attachments/65f9f121f27a186b3ac8e6d50ddc968c/07f65c40/image-asset.jpeg"})`,
         }}
       ></div>
     </>
