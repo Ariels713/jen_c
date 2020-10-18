@@ -25,6 +25,9 @@ import Fitzpartrick from "./components/styling/fitzpatrick/Fitpatrick";
 import Ldsass from "./components/styling/ldsass/Ldsass";
 import Mazza from "./components/styling/mazzaNYC/Mazza";
 import Blawg from "./components/blawg/BlogPosts";
+import Destructuring from "./components/blawg/design/Destructuring";
+import Sandbar from "./components/blawg/experience/Sandbar";
+import BlackIsKing from "./components/blawg/culture/BlackIsKing";
 function App() {
   return (
     <>
@@ -60,7 +63,11 @@ function App() {
         {/* Styling Links */}
 
         {/* Blawg Links */}
-        <Route path="/blawg" component={Mazza} />
+        <Route path="/blawg/sandbar" component={Sandbar} />
+        <Route path="/blawg/blackisking" component={BlackIsKing} />
+        <Route path="/blawg/destructure" component={Destructuring} />
+
+        <Route path="/blawg" component={Blawg} />
         {/* Blawg Links */}
 
         <Route exact path="/">
