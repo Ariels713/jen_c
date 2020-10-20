@@ -12,10 +12,32 @@ function Example() {
       password: "",
     },
   });
-
   const buttonHandler = (e) => {
     e.preventDefault();
     setCreateUser(!createUser);
+    setLogIn((preveState) => {
+      return {
+        ...preveState,
+        register: !preveState.register,
+      };
+    });
+  };
+  console.log(logIn);
+
+  const registerUserHandler = (e) => {
+    e.preventDefault();
+  };
+
+  const loginUserHandler = (e) => {
+    const { name, value } = e.target;
+    setLogIn((prevState) => {
+      return {
+        user: {
+          ...prevState.user,
+          [name]: value,
+        },
+      };
+    });
   };
 
   return (
@@ -61,11 +83,23 @@ function Example() {
             <Form>
               <FormGroup>
                 <label>Email</label>
-                <Input defaultValue="" placeholder="Email" type="text" />
+                <Input
+                  placeholder="Email"
+                  type="email"
+                  name="email"
+                  value={logIn.user.email}
+                  onChange={loginUserHandler}
+                />
               </FormGroup>
               <FormGroup>
                 <label>Password</label>
-                <Input defaultValue="" placeholder="Password" type="password" />
+                <Input
+                  placeholder="Password"
+                  type="password"
+                  name="password"
+                  value={logIn.user.password}
+                  onChange={loginUserHandler}
+                />
               </FormGroup>
               <Button block className="btn-round" color="success">
                 Log in
