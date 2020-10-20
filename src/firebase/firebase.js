@@ -1,8 +1,10 @@
 import * as firebase from "firebase/app";
 import "firebase/firestore";
+import "firebase/auth";
+require("dotenv").config();
 
 var firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
+  apiKey: `"${process.env.FIREBASE_API_KEY}"`,
   authDomain: "jen-c-de3ed.firebaseapp.com",
   databaseURL: "https://jen-c-de3ed.firebaseio.com",
   projectId: "jen-c-de3ed",
@@ -13,3 +15,6 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+firebase.auth();
+
+export default firebase;

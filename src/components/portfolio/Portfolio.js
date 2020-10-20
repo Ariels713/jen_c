@@ -1,43 +1,63 @@
 import React, { useState } from "react";
+import firebase from "../../firebase/firebase";
+
 // reactstrap components
 import { Button, FormGroup, Input, Modal, Form } from "reactstrap";
 
 function Example() {
   const [loginModal, setLoginModal] = useState(false);
-  const [createUser, setCreateUser] = useState(false);
-  const [logIn, setLogIn] = useState({
-    register: true,
-    user: {
-      email: "",
-      password: "",
-    },
-  });
+  //Updates Modol from signin to register user
+  const [createUser, setCreateUser] = useState(true);
+
+  //values for current user
+  const [userEmail, setUserEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+
+  //values to regist new user
+  const [newUserName, setNewUserName] = useState("");
+  const [newUserEmail, setNewUserEmail] = useState("");
+  const [newUserPassWord, setNewUserPassword] = useState("");
+
   const buttonHandler = (e) => {
-    e.preventDefault();
     setCreateUser(!createUser);
-    setLogIn((preveState) => {
-      return {
-        ...preveState,
-        register: !preveState.register,
-      };
-    });
   };
-  console.log(logIn);
 
-  const registerUserHandler = (e) => {
+  function clearFroms() {
+    setCreateUser(true);
+    setUserEmail("");
+    setUserPassword("");
+    setNewUserName("");
+    setNewUserEmail("");
+    setNewUserPassword("");
+    setLoginModal(false);
+  }
+
+  const registerNewUser = (e) => {
     e.preventDefault();
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(newUserEmail, newUserPassWord)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    clearFroms();
   };
 
-  const loginUserHandler = (e) => {
-    const { name, value } = e.target;
-    setLogIn((prevState) => {
-      return {
-        user: {
-          ...prevState.user,
-          [name]: value,
-        },
-      };
-    });
+  const logInUser = (e) => {
+    e.preventDefault();
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(userEmail, userPassword)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    clearFroms();
   };
 
   return (
@@ -80,15 +100,15 @@ function Example() {
         </div>
         <div className="modal-body">
           {createUser ? (
-            <Form>
+            <Form onSubmit={logInUser}>
               <FormGroup>
                 <label>Email</label>
                 <Input
                   placeholder="Email"
                   type="email"
                   name="email"
-                  value={logIn.user.email}
-                  onChange={loginUserHandler}
+                  value={userEmail}
+                  onChange={(e) => setUserEmail(e.target.value)}
                 />
               </FormGroup>
               <FormGroup>
@@ -97,8 +117,8 @@ function Example() {
                   placeholder="Password"
                   type="password"
                   name="password"
-                  value={logIn.user.password}
-                  onChange={loginUserHandler}
+                  value={userPassword}
+                  onChange={(e) => setUserPassword(e.target.value)}
                 />
               </FormGroup>
               <Button block className="btn-round" color="success">
@@ -118,21 +138,35 @@ function Example() {
                   <i className="fa fa-twitter" />
                 </Button>
               </div>
-              <Form>
+              <Form onSubmit={registerNewUser}>
                 <FormGroup>
                   <label>Name</label>
-                  <Input defaultValue="" placeholder="Name" type="text" />
+                  <Input
+                    placeholder="Name"
+                    type="text"
+                    name="name"
+                    value={newUserName}
+                    onChange={(e) => setNewUserName(e.target.value)}
+                  />
                 </FormGroup>
                 <FormGroup>
                   <label>Email</label>
-                  <Input defaultValue="" placeholder="Email" type="text" />
+                  <Input
+                    placeholder="Email"
+                    type="email"
+                    name="email"
+                    value={newUserEmail}
+                    onChange={(e) => setNewUserEmail(e.target.value)}
+                  />
                 </FormGroup>
                 <FormGroup>
                   <label>Password</label>
                   <Input
-                    defaultValue=""
                     placeholder="Password"
                     type="password"
+                    name="password"
+                    value={newUserPassWord}
+                    onChange={(e) => setNewUserPassword(e.target.value)}
                   />
                 </FormGroup>
                 <Button block className="btn-round" color="success">
