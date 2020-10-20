@@ -15,6 +15,7 @@ import {
 // core components
 import ContactModal from "../contact/ContactModal";
 import PortFolio from "../portfolio/Portfolio";
+import PortfolioLogin from "../portfolio/PortfolioLogin";
 
 function WhiteNavbar() {
   const [bodyClick, setBodyClick] = React.useState(false);
@@ -82,7 +83,7 @@ function WhiteNavbar() {
                 <ContactModal />
               </NavItem>
               <NavItem>
-                <PortFolio />
+                <PortfolioLogin />
               </NavItem>
             </Nav>
           </Collapse>

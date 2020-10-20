@@ -4,7 +4,7 @@ import firebase from "../../firebase/firebase";
 // reactstrap components
 import { Button, FormGroup, Input, Modal, Form } from "reactstrap";
 
-function Example() {
+function Portfolio() {
   const [loginModal, setLoginModal] = useState(false);
   //Updates Modol from signin to register user
   const [createUser, setCreateUser] = useState(true);
@@ -39,11 +39,11 @@ function Example() {
       .createUserWithEmailAndPassword(newUserEmail, newUserPassWord)
       .then((res) => {
         console.log(res);
+        clearFroms();
       })
       .catch((e) => {
         console.log(e);
       });
-    clearFroms();
   };
 
   const logInUser = (e) => {
@@ -52,12 +52,12 @@ function Example() {
       .auth()
       .signInWithEmailAndPassword(userEmail, userPassword)
       .then((res) => {
+        clearFroms();
         console.log(res);
       })
       .catch((e) => {
         console.log(e);
       });
-    clearFroms();
   };
 
   return (
@@ -202,4 +202,4 @@ function Example() {
   );
 }
 
-export default Example;
+export default Portfolio;
