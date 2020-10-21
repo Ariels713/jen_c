@@ -55,7 +55,7 @@ export const reducer = (state, action) => {
     case "INVALID_EMAIL":
       return {
         ...state,
-        error: "Email is not valid, please register!",
+        error: "Email is not valid, please use a different email!",
         isLoggedIn: false,
         isLoading: false,
         userEmail: "",
@@ -88,6 +88,18 @@ export const reducer = (state, action) => {
         newUserEmail: "",
         newUserPassword: "",
       };
+    case "EMAIL_IN_USE":
+      return {
+        error: "Account already exist. Please log on",
+        isLoggedIn: false,
+        isLoading: false,
+        userEmail: "",
+        userPassword: "",
+        newUserName: "",
+        newUserEmail: "",
+        newUserPassword: "",
+      };
+
     case "FIELD":
       return {
         ...state,

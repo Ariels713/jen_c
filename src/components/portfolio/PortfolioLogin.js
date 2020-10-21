@@ -7,7 +7,7 @@ import { reducer, initialState } from "./reducer/portfolioReducer";
 
 const PortfolioLogin = () => {
   //open and close modal
-  const [loginModal, setLoginModal] = useState(true);
+  const [loginModal, setLoginModal] = useState(false);
   const [state, dispatch] = useReducer(reducer, initialState);
   const {
     createUser,
@@ -36,13 +36,13 @@ const PortfolioLogin = () => {
       let errorCode = e.code;
       let errMessage = e.message;
       console.log(e);
-      if (errorCode === "auth/wrong-password") {
-        dispatch({ type: "WRONG_PASSWORD" });
+      if (errorCode === "auth/email-already-in-use") {
+        dispatch({ type: "EMAIL_IN_USE" });
       } else if (errorCode === "auth/invalid-email") {
         dispatch({ type: "INVALID_EMAIL" });
-      } else if (errorCode === "auth/user-disabled") {
+      } else if (errorCode === "auth/operation-not-allowed") {
         dispatch({ type: "USER_DISABLED" });
-      } else if (errorCode === "auth/user-not-found") {
+      } else if (errorCode === "auth/operation-not-allowed") {
         dispatch({ type: "USER_NOT_FOUND" });
       } else if (errorCode === "auth/weak-password") {
         dispatch({ type: "WEAK_PASSWORD" });

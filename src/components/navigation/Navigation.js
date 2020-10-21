@@ -16,7 +16,7 @@ import {
 } from "reactstrap";
 // core components
 import ContactModal from "../contact/ContactModal";
-
+import Portfolio from "../portfolio/Portfolio";
 import PortfolioLogin from "../portfolio/PortfolioLogin";
 
 function Navigation() {
@@ -33,6 +33,7 @@ function Navigation() {
     if (user) {
       setLoggedOn(true);
     } else {
+      setLoggedOn(false);
     }
   });
 
@@ -57,7 +58,7 @@ function Navigation() {
         id="navbar-main"
       >
         <Container>
-          {/* <div className="navbar-translate">
+          <div className="navbar-translate">
             <NavbarBrand id="navbar-brand" to="/" tag={Link}>
               JENNY LOGO
             </NavbarBrand>
@@ -75,7 +76,7 @@ function Navigation() {
               <span className="navbar-toggler-bar bar2" />
               <span className="navbar-toggler-bar bar3" />
             </button>
-          </div> */}
+          </div>
 
           <Collapse navbar isOpen={collapseOpen}>
             <Nav className="ml-auto" navbar>
@@ -104,7 +105,12 @@ function Navigation() {
               </NavItem>
               {loggedOn ? (
                 <>
-                  <Button className="btn-round" color="danger">
+                  <Button
+                    className="btn-round"
+                    color="danger"
+                    tag={Link}
+                    to="/blawg"
+                  >
                     Portfolio!
                   </Button>
                   <Button
@@ -120,6 +126,9 @@ function Navigation() {
                   <PortfolioLogin />
                 </NavItem>
               )}
+              {/* <NavItem>
+                <Portfolio />
+              </NavItem> */}
             </Nav>
           </Collapse>
         </Container>
