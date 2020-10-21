@@ -1,11 +1,15 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useCallback, useContext } from "react";
+import { withRouter, Redirect } from "react-router";
+import { AuthContext } from "../authProvider/AuthProvider";
 import firebase from "../../firebase/firebase";
 
 // reactstrap components
 import { Button, FormGroup, Input, Modal, Form, Alert } from "reactstrap";
 import { reducer, initialState } from "./reducer/portfolioReducer";
 
-const PortfolioLogin = () => {
+const PortfolioLogin = ({ history }) => {
+  const { currentUser } = useContext(AuthContext); //Gives us user Object
+
   //open and close modal
   const [loginModal, setLoginModal] = useState(false);
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -18,7 +22,7 @@ const PortfolioLogin = () => {
     newUserPassword,
     isLoading,
     error,
-    isLoggedIn,
+    // isLoggedIn,
   } = state;
 
   const registerUser = async (event) => {
@@ -50,33 +54,65 @@ const PortfolioLogin = () => {
     }
   };
 
-  const logInUser = async (event) => {
-    event.preventDefault();
-    try {
-      await firebase
-        .auth()
-        .signInWithEmailAndPassword(userEmail, userPassword)
-        .then((res) => {
-          dispatch({ type: "LOG_IN_USER" });
-          setLoginModal(false);
-        });
-    } catch (e) {
-      let errorCode = e.code;
-      let errMessage = e.message;
-      console.log(e);
-      if (errorCode === "auth/wrong-password") {
-        dispatch({ type: "WRONG_PASSWORD" });
-      } else if (errorCode === "auth/invalid-email") {
-        dispatch({ type: "INVALID_EMAIL" });
-      } else if (errorCode === "auth/user-disabled") {
-        dispatch({ type: "USER_DISABLED" });
-      } else if (errorCode === "auth/user-not-found") {
-        dispatch({ type: "USER_NOT_FOUND" });
-      } else if (errorCode === "auth/weak-password") {
-        dispatch({ type: "WEAK_PASSWORD" });
-      } else console.log(errMessage);
-    }
-  };
+  // const logInUser = async (event) => {
+  //   event.preventDefault();
+  //   try {
+  //     await firebase
+  //       .auth()
+  //       .signInWithEmailAndPassword(userEmail, userPassword)
+  //       .then((res) => {
+  //         dispatch({ type: "LOG_IN_USER" });
+  //         setLoginModal(false);
+  //       });
+  //   } catch (e) {
+  //     let errorCode = e.code;
+  //     let errMessage = e.message;
+  //     console.log(e);
+  //     if (errorCode === "auth/wrong-password") {
+  //       dispatch({ type: "WRONG_PASSWORD" });
+  //     } else if (errorCode === "auth/invalid-email") {
+  //       dispatch({ type: "INVALID_EMAIL" });
+  //     } else if (errorCode === "auth/user-disabled") {
+  //       dispatch({ type: "USER_DISABLED" });
+  //     } else if (errorCode === "auth/user-not-found") {
+  //       dispatch({ type: "USER_NOT_FOUND" });
+  //     } else if (errorCode === "auth/weak-password") {
+  //       dispatch({ type: "WEAK_PASSWORD" });
+  //     } else console.log(errMessage);
+  //   }
+  // };
+
+  const logInUser = useCallback(
+    async (event) => {
+      event.preventDefault();
+      try {
+        await firebase
+          .auth()
+          .signInWithEmailAndPassword(userEmail, userPassword)
+          .then((res) => {
+            dispatch({ type: "LOG_IN_USER" });
+            setLoginModal(false);
+            history.push("/portfolioPage");
+          });
+      } catch (e) {
+        let errorCode = e.code;
+        let errMessage = e.message;
+        console.log(e);
+        if (errorCode === "auth/wrong-password") {
+          dispatch({ type: "WRONG_PASSWORD" });
+        } else if (errorCode === "auth/invalid-email") {
+          dispatch({ type: "INVALID_EMAIL" });
+        } else if (errorCode === "auth/user-disabled") {
+          dispatch({ type: "USER_DISABLED" });
+        } else if (errorCode === "auth/user-not-found") {
+          dispatch({ type: "USER_NOT_FOUND" });
+        } else if (errorCode === "auth/weak-password") {
+          dispatch({ type: "WEAK_PASSWORD" });
+        } else console.log(errMessage);
+      }
+    },
+    [history, userEmail, userPassword]
+  );
 
   return (
     <>

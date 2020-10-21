@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import firebase from "../../firebase/firebase";
 import { AuthContext } from "../authProvider/AuthProvider";
@@ -20,7 +20,7 @@ import ContactModal from "../contact/ContactModal";
 
 import PortfolioLogin from "../portfolio/PortfolioLogin";
 
-function Navigation({ history }) {
+function Navigation() {
   const [bodyClick, setBodyClick] = useState(false);
   const [collapseOpen, setCollapseOpen] = useState(false);
   const [loggedOn, setLoggedOn] = useState(false);

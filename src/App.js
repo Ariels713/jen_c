@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { AuthProvider } from "./components/authProvider/AuthProvider";
+import PrivateRoute from "./components/privateRoute/PrivateRoute";
 import Navigation from "./components/navigation/Navigation";
 import MainHeader from "./components/header/MainHeader";
 import RecentProject from "./components/recentProjects/RecentProjects";
@@ -72,7 +73,7 @@ function App() {
 
           <Route path="/blawg" component={Blawg} />
           {/* Blawg Links */}
-          <Route path="/portfolioPage" component={PortfolioPage} />
+          <PrivateRoute path="/portfolioPage" component={PortfolioPage} />
           <Route exact path="/">
             <MainHeader />
             <MainContent />
