@@ -1,6 +1,6 @@
 import React, { useState, useReducer, useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
-import { AuthContext } from "../authProvider/AuthProvider";
+// import { AuthContext } from "../authProvider/AuthProvider";
 import firebase from "../../firebase/firebase";
 
 // reactstrap components
@@ -8,8 +8,6 @@ import { Button, FormGroup, Input, Modal, Form, Alert } from "reactstrap";
 import { reducer, initialState } from "./reducer/portfolioReducer";
 
 const PortfolioLogin = ({ history }) => {
-  const { currentUser } = useContext(AuthContext); //Gives us user Object
-
   //open and close modal
   const [loginModal, setLoginModal] = useState(false);
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -25,9 +23,8 @@ const PortfolioLogin = ({ history }) => {
     // isLoggedIn,
   } = state;
 
-  const registerUser = async (event) => {
+  const registerUser = useCallback(async (event) => {
     event.preventDefault();
-    dispatch({ type: "LOGIN" });
     try {
       await firebase
         .auth()
@@ -36,6 +33,7 @@ const PortfolioLogin = ({ history }) => {
           dispatch({ type: "REGISTERING_USER" });
           setLoginModal(false);
         });
+      history.push("/portfolioPage");
     } catch (e) {
       let errorCode = e.code;
       let errMessage = e.message;
@@ -52,7 +50,36 @@ const PortfolioLogin = ({ history }) => {
         dispatch({ type: "WEAK_PASSWORD" });
       } else console.log(errMessage);
     }
-  };
+  });
+
+  // const registerUser = async (event) => {
+  //   event.preventDefault();
+  //   dispatch({ type: "LOGIN" });
+  //   try {
+  //     await firebase
+  //       .auth()
+  //       .createUserWithEmailAndPassword(newUserEmail, newUserPassword)
+  //       .then((res) => {
+  //         dispatch({ type: "REGISTERING_USER" });
+  //         setLoginModal(false);
+  //       });
+  //   } catch (e) {
+  //     let errorCode = e.code;
+  //     let errMessage = e.message;
+  //     console.log(e);
+  //     if (errorCode === "auth/email-already-in-use") {
+  //       dispatch({ type: "EMAIL_IN_USE" });
+  //     } else if (errorCode === "auth/invalid-email") {
+  //       dispatch({ type: "INVALID_EMAIL" });
+  //     } else if (errorCode === "auth/operation-not-allowed") {
+  //       dispatch({ type: "USER_DISABLED" });
+  //     } else if (errorCode === "auth/operation-not-allowed") {
+  //       dispatch({ type: "USER_NOT_FOUND" });
+  //     } else if (errorCode === "auth/weak-password") {
+  //       dispatch({ type: "WEAK_PASSWORD" });
+  //     } else console.log(errMessage);
+  //   }
+  // };
 
   // const logInUser = async (event) => {
   //   event.preventDefault();
@@ -92,8 +119,8 @@ const PortfolioLogin = ({ history }) => {
           .then((res) => {
             dispatch({ type: "LOG_IN_USER" });
             setLoginModal(false);
-            history.push("/portfolioPage");
           });
+        history.push("/portfolioPage");
       } catch (e) {
         let errorCode = e.code;
         let errMessage = e.message;
@@ -298,4 +325,4 @@ const PortfolioLogin = ({ history }) => {
   );
 };
 
-export default PortfolioLogin;
+export default withRouter(PortfolioLogin);
