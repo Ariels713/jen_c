@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import { AuthProvider } from "./components/authProvider/AuthProvider";
 import Navigation from "./components/navigation/Navigation";
 import MainHeader from "./components/header/MainHeader";
 import RecentProject from "./components/recentProjects/RecentProjects";
@@ -28,57 +29,60 @@ import Blawg from "./components/blawg/BlogPosts";
 import Destructuring from "./components/blawg/design/Destructuring";
 import Sandbar from "./components/blawg/experience/Sandbar";
 import BlackIsKing from "./components/blawg/culture/BlackIsKing";
+import PortfolioPage from "./components/portfolio/PortfolioPage";
 function App() {
   return (
     <>
-      <Navigation />
-      <Switch>
-        {/* Production Links */}
-        <Route path="/production/fuzzyhead" component={FuzzyHead} />
-        <Route path="/production/orient" component={Orient} />
-        <Route path="/production/montblanc" component={Montblanc} />
-        <Route path="/production/funnyface" component={FunnyFace} />
-        <Route path="/production/museum" component={Museum} />
-        <Route path="/production/orchid" component={Orchid} />
-        <Route path="/production/tribecca" component={Tribecca} />
+      <AuthProvider>
+        <Navigation />
+        <Switch>
+          {/* Production Links */}
+          <Route path="/production/fuzzyhead" component={FuzzyHead} />
+          <Route path="/production/orient" component={Orient} />
+          <Route path="/production/montblanc" component={Montblanc} />
+          <Route path="/production/funnyface" component={FunnyFace} />
+          <Route path="/production/museum" component={Museum} />
+          <Route path="/production/orchid" component={Orchid} />
+          <Route path="/production/tribecca" component={Tribecca} />
 
-        <Route path="/production" component={Productions} />
-        {/* Production Links */}
-        {/* Interior Links */}
-        <Route path="/interiors/forest" component={Forest} />
-        <Route path="/interiors/rendering" component={Rendering} />
-        <Route path="/interiors/uws" component={UWS} />
+          <Route path="/production" component={Productions} />
+          {/* Production Links */}
+          {/* Interior Links */}
+          <Route path="/interiors/forest" component={Forest} />
+          <Route path="/interiors/rendering" component={Rendering} />
+          <Route path="/interiors/uws" component={UWS} />
 
-        <Route path="/interiors" component={Interiors} />
+          <Route path="/interiors" component={Interiors} />
 
-        {/* Interior Links */}
+          {/* Interior Links */}
 
-        {/* Styling Links */}
-        <Route path="/styling/doji" component={Doji} />
-        <Route path="/styling/fitzpatrick" component={Fitzpartrick} />
-        <Route path="/styling/ldsass" component={Ldsass} />
-        <Route path="/styling/mazza" component={Mazza} />
+          {/* Styling Links */}
+          <Route path="/styling/doji" component={Doji} />
+          <Route path="/styling/fitzpatrick" component={Fitzpartrick} />
+          <Route path="/styling/ldsass" component={Ldsass} />
+          <Route path="/styling/mazza" component={Mazza} />
 
-        <Route path="/styling" component={Styling} />
-        {/* Styling Links */}
+          <Route path="/styling" component={Styling} />
+          {/* Styling Links */}
 
-        {/* Blawg Links */}
-        <Route path="/blawg/sandbar" component={Sandbar} />
-        <Route path="/blawg/blackisking" component={BlackIsKing} />
-        <Route path="/blawg/destructure" component={Destructuring} />
+          {/* Blawg Links */}
+          <Route path="/blawg/sandbar" component={Sandbar} />
+          <Route path="/blawg/blackisking" component={BlackIsKing} />
+          <Route path="/blawg/destructure" component={Destructuring} />
 
-        <Route path="/blawg" component={Blawg} />
-        {/* Blawg Links */}
-
-        <Route exact path="/">
-          <MainHeader />
-          <MainContent />
-          <AboutJenny />
-          <RecentProject />
-        </Route>
-      </Switch>
-      <NewsLetter />
-      <Footer />
+          <Route path="/blawg" component={Blawg} />
+          {/* Blawg Links */}
+          <Route path="/portfolioPage" component={PortfolioPage} />
+          <Route exact path="/">
+            <MainHeader />
+            <MainContent />
+            <AboutJenny />
+            <RecentProject />
+          </Route>
+        </Switch>
+        <NewsLetter />
+        <Footer />
+      </AuthProvider>
     </>
   );
 }

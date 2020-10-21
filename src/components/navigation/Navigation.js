@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import { Link } from "react-router-dom";
 import firebase from "../../firebase/firebase";
+import { AuthContext } from "../authProvider/AuthProvider";
 // JavaScript plugin that hides or shows a component based on your scroll
 import Headroom from "headroom.js";
 // reactstrap components
@@ -16,25 +17,18 @@ import {
 } from "reactstrap";
 // core components
 import ContactModal from "../contact/ContactModal";
-import Portfolio from "../portfolio/Portfolio";
+
 import PortfolioLogin from "../portfolio/PortfolioLogin";
 
-function Navigation() {
+function Navigation({ history }) {
   const [bodyClick, setBodyClick] = useState(false);
   const [collapseOpen, setCollapseOpen] = useState(false);
   const [loggedOn, setLoggedOn] = useState(false);
+  const { currentUser } = useContext(AuthContext);
   useEffect(() => {
     let headroom = new Headroom(document.getElementById("navbar-main"));
     // initialise
     headroom.init();
-  });
-
-  const signedIn = firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      setLoggedOn(true);
-    } else {
-      setLoggedOn(false);
-    }
   });
 
   const logOutHandler = (e) => {
@@ -49,6 +43,7 @@ function Navigation() {
         console.log(e);
       });
   };
+
   return (
     <>
       <Navbar
@@ -103,13 +98,13 @@ function Navigation() {
               <NavItem>
                 <ContactModal />
               </NavItem>
-              {loggedOn ? (
+              {currentUser ? (
                 <>
                   <Button
                     className="btn-round"
                     color="danger"
                     tag={Link}
-                    to="/blawg"
+                    to="/portfolioPage"
                   >
                     Portfolio!
                   </Button>
@@ -126,9 +121,6 @@ function Navigation() {
                   <PortfolioLogin />
                 </NavItem>
               )}
-              {/* <NavItem>
-                <Portfolio />
-              </NavItem> */}
             </Nav>
           </Collapse>
         </Container>
