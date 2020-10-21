@@ -35,7 +35,7 @@ function Navigation() {
     } else {
     }
   });
-  console.log(signedIn);
+
   const logOutHandler = (e) => {
     e.preventDefault();
     firebase
