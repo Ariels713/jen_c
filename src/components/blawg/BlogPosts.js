@@ -37,7 +37,7 @@ function BlogPosts() {
         setIsLoading(false);
       } catch (err) {}
     };
-    console.log(images);
+
     aboutMe();
   }, []);
   return (

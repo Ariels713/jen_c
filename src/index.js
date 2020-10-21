@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import firebase from "../src/firebase/firebase";
 // styles
 import "./assets/css/bootstrap.min.css";
 import "./assets/css/paper-kit.css";
@@ -18,3 +19,11 @@ ReactDOM.render(
   </Router>,
   document.getElementById("root")
 );
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    console.log(user);
+  } else {
+    console.log("no user logged on");
+  }
+});

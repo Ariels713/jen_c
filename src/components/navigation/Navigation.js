@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import firebase from "../../firebase/firebase";
 // JavaScript plugin that hides or shows a component based on your scroll
 import Headroom from "headroom.js";
 // reactstrap components
@@ -11,20 +12,42 @@ import {
   Nav,
   Container,
   NavLink,
+  Button,
 } from "reactstrap";
 // core components
 import ContactModal from "../contact/ContactModal";
-import PortFolio from "../portfolio/Portfolio";
+
 import PortfolioLogin from "../portfolio/PortfolioLogin";
 
-function WhiteNavbar() {
-  const [bodyClick, setBodyClick] = React.useState(false);
-  const [collapseOpen, setCollapseOpen] = React.useState(false);
-  React.useEffect(() => {
+function Navigation() {
+  const [bodyClick, setBodyClick] = useState(false);
+  const [collapseOpen, setCollapseOpen] = useState(false);
+  const [loggedOn, setLoggedOn] = useState(false);
+  useEffect(() => {
     let headroom = new Headroom(document.getElementById("navbar-main"));
     // initialise
     headroom.init();
   });
+
+  const signedIn = firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      setLoggedOn(true);
+    } else {
+    }
+  });
+  console.log(signedIn);
+  const logOutHandler = (e) => {
+    e.preventDefault();
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        setLoggedOn(false);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
   return (
     <>
       <Navbar
@@ -34,7 +57,7 @@ function WhiteNavbar() {
         id="navbar-main"
       >
         <Container>
-          <div className="navbar-translate">
+          {/* <div className="navbar-translate">
             <NavbarBrand id="navbar-brand" to="/" tag={Link}>
               JENNY LOGO
             </NavbarBrand>
@@ -52,7 +75,7 @@ function WhiteNavbar() {
               <span className="navbar-toggler-bar bar2" />
               <span className="navbar-toggler-bar bar3" />
             </button>
-          </div>
+          </div> */}
 
           <Collapse navbar isOpen={collapseOpen}>
             <Nav className="ml-auto" navbar>
@@ -77,14 +100,26 @@ function WhiteNavbar() {
                 </NavLink>
               </NavItem>
               <NavItem>
-                {/* <Button tag={Link} to="/signup" color="#fff">
-                  Contact
-                </Button> */}
                 <ContactModal />
               </NavItem>
-              <NavItem>
-                <PortfolioLogin />
-              </NavItem>
+              {loggedOn ? (
+                <>
+                  <Button className="btn-round" color="danger">
+                    Portfolio!
+                  </Button>
+                  <Button
+                    className="btn-link"
+                    color="black"
+                    onClick={logOutHandler}
+                  >
+                    Log out
+                  </Button>
+                </>
+              ) : (
+                <NavItem>
+                  <PortfolioLogin />
+                </NavItem>
+              )}
             </Nav>
           </Collapse>
         </Container>
@@ -93,4 +128,4 @@ function WhiteNavbar() {
   );
 }
 
-export default WhiteNavbar;
+export default Navigation;
